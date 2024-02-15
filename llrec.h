@@ -76,15 +76,35 @@ Node* llfilter(Node* head, Comp pred);
 // Since template implementations should be in a header file, we will
 // implement the above function now.
 //*****************************************************************************
+struct GreaterThan {
+    int threshold;
+    GreaterThan(int thresh) : threshold(thresh) {}
+    bool operator()(int value) const {
+        return value > threshold;
+    }
+};
+
 
 template <typename Comp>
 Node* llfilter(Node* head, Comp pred)
 {
-    //*********************************************
-    // Provide your implementation below
-    //*********************************************
+    if (head == nullptr)
+    {
+        return nullptr;
+    }
 
-
+    if (pred(head->val))
+    {
+        Node* temp = head;
+        head = head -> next;
+        delete temp;
+        return llfilter(head, pred);
+    }
+    else
+    {
+        head->next = llfilter(head->next, pred);
+        return head;
+    }
 }
 
 #endif

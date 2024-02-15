@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <functional> //testing github
+#include <functional> 
 #include "llrec.h"
 using namespace std;
 
@@ -68,8 +68,21 @@ void dealloc(Node* head)
 // -----------------------------------------------
 
 
+void llrecTestpt1(Node *&head)
+{
+    Node* smaller = nullptr;
+    Node* larger = nullptr;
+    llpivot(head, smaller, larger, 2);
+    print(smaller);
+    print(larger);
+}
 
-
+void llrecTestpt2(Node *&head)
+{
+    // Test out your linked list code
+    GreaterThan gt(2);
+    print(llfilter(head, gt));
+}
 
 int main(int argc, char* argv[])
 {
@@ -82,12 +95,13 @@ int main(int argc, char* argv[])
     // Feel free to update any code below this point
     // -----------------------------------------------
     Node* head = readList(argv[1]);
-    cout << "Original list: ";
+    std::cout << "Original list: ";
     print(head);
 
-    // Test out your linked list code
-
-
+    std::cout << "Part 1: " << std::endl;
+    llrecTestpt1(head);
+    std::cout << "Part 2: " << std::endl;
+    llrecTestpt2(head);
 
     
     return 0;
