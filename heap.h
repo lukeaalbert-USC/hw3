@@ -102,7 +102,6 @@ void Heap<T,PComparator>::trickleUp(int loc)
     loc = parent;
     parent = (loc - 1)/_m;
   }
-  std::cout << "parent after trickleup: " << data[0] << std::endl;
 }
 
 //trickle it DOWNNNN!
@@ -173,7 +172,6 @@ void Heap<T,PComparator>::pop()
   if (size() == 1) {data.pop_back(); return;}
   std::swap(data[0], data[size() -1]); //swap (at least 2 items to swap)
 
-  std::cout << "back element (about to be popped): " << data[size() -1] << std::endl;
   data.pop_back();
 
   if (size() == 1) {return;} //No need to trickle. Only 1 item left.
