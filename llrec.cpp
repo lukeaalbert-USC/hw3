@@ -1,5 +1,3 @@
-#include <fstream>
-#include <functional> 
 #include "llrec.h"
 
 //*********************************************
