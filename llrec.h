@@ -4,6 +4,8 @@
 #define NULL 0
 #endif
 
+
+
 /**
  * Node struct for both problems
  */
@@ -47,7 +49,7 @@ struct Node
  *   Pivot value
  *
  */
-void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot);
+void llpivot(Node*& head, Node*& smaller, Node*& larger, int pivot);
 
 /**
  * Given a linked list pointed to by head, removes (filters out) nodes
